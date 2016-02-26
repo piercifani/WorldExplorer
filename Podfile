@@ -1,4 +1,4 @@
-platform :osx, '10.10'
+platform :osx, '10.11'
 use_frameworks!
 inhibit_all_warnings!
 
