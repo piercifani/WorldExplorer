@@ -12,12 +12,7 @@ struct CountryItemModel {
 class CountryItem: NSCollectionViewItem, ConfigurableCell {
 
     typealias T = CountryItemModel
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
-    }
-        
+
     func configureFor(viewModel viewModel: CountryItemModel) -> Void {
         let itemView = self.view as! CountryItemView
         itemView.countryNameLabel.stringValue = viewModel.countryName
