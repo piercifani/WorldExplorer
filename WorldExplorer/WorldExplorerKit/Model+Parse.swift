@@ -6,12 +6,6 @@
 import Foundation
 import Decodable
 
-public struct Country {
-    let name: String
-    let population: Double
-    let currencies: [String]
-}
-
 extension Country: Decodable {
 
     public static func decode(j: AnyObject) throws -> Country {

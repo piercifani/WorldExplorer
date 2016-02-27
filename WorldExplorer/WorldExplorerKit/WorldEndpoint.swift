@@ -5,18 +5,10 @@
 
 import Foundation
 
-enum Region {
-    case Europe
-    case Africa
-    case Asia
-    case Oceania
-    case America
-}
-
 let BaseURL = "https://restcountries.eu/rest/v1/"
 
 extension Region: Endpoint {
-    var path: String {
+    public var path: String {
         
         let value: String
         
