@@ -6,8 +6,18 @@
 import Cocoa
 import MapKit
 
-class CountryController: NSViewController {
+class CountryController: NSViewController, RegionPickerObserver {
     
+    var apiClient: APIClient!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    //MARK: - RegionPickerObserver
+    func onRegionPicked(region: Region) {
+    
+    }
 }
 
 class FilterHandlerView: NSView, NSTextFieldDelegate {
@@ -40,10 +50,6 @@ class CountryListView: NSView {
             mapper: { country in
                 return CountryItemModel(countryName:country.name)
         })
-        
-        let countries: [Country] = []
-        
-        dataSource.state = .Values(countries)
     }
 }
 

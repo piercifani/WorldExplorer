@@ -155,8 +155,8 @@
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NLL-Gc-v8Y">
                                         <rect key="frame" x="0.0" y="-1" width="86" height="52"/>
-                                        <buttonCell key="cell" type="smallSquare" title="Europe" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3L1-S8-F4Y">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <buttonCell key="cell" type="smallSquare" title="Europe" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3L1-S8-F4Y">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
@@ -165,8 +165,8 @@
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cUC-Vn-OdV">
                                         <rect key="frame" x="91" y="-1" width="86" height="52"/>
-                                        <buttonCell key="cell" type="smallSquare" title="Americas" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ICn-vi-XRU">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <buttonCell key="cell" type="smallSquare" title="Americas" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ICn-vi-XRU">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
@@ -175,8 +175,8 @@
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hO1-eF-flo">
                                         <rect key="frame" x="182" y="-1" width="86" height="52"/>
-                                        <buttonCell key="cell" type="smallSquare" title="Oceania" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Fj-EI-0Eq">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <buttonCell key="cell" type="smallSquare" title="Oceania" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Fj-EI-0Eq">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
@@ -185,8 +185,8 @@
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8qq-7A-gcP">
                                         <rect key="frame" x="273" y="-1" width="86" height="52"/>
-                                        <buttonCell key="cell" type="smallSquare" title="Asia" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hin-eE-9sH">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <buttonCell key="cell" type="smallSquare" title="Asia" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hin-eE-9sH">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
@@ -195,8 +195,8 @@
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="evN-00-4X4">
                                         <rect key="frame" x="364" y="-1" width="86" height="52"/>
-                                        <buttonCell key="cell" type="smallSquare" title="Africa" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2Eh-sm-XrM">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <buttonCell key="cell" type="smallSquare" title="Africa" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2Eh-sm-XrM">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
@@ -240,6 +240,13 @@
                             <constraint firstAttribute="trailing" secondItem="bSD-lZ-bEv" secondAttribute="trailing" id="o56-7p-lrn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="africaButton" destination="evN-00-4X4" id="GQX-xP-OFO"/>
+                        <outlet property="americasButton" destination="cUC-Vn-OdV" id="r1s-o3-Hmi"/>
+                        <outlet property="asiaButton" destination="8qq-7A-gcP" id="tHm-BL-90q"/>
+                        <outlet property="europeButton" destination="NLL-Gc-v8Y" id="UGl-9T-j7d"/>
+                        <outlet property="oceaniaButton" destination="hO1-eF-flo" id="nV3-H7-RKB"/>
+                    </connections>
                 </viewController>
                 <customObject id="t7j-pp-txR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

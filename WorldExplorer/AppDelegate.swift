@@ -12,11 +12,19 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     let apiClient = APIClient()
-
+    
+    // I Hate this bool, it adds state and it's sloppy, but
+    // I have no idea why appDidFinishLaunching and appDidBecomeActive
+    // are being called either a lot, or before the views are set up
+    var setupFinished: Bool = false
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
     }
-
+    
     func applicationDidBecomeActive(notification: NSNotification) {
+
+        guard setupFinished == false else { return }
+        
         guard let rootVC = NSApplication.sharedApplication().mainWindow?.contentViewController as? NSSplitViewController else {
             return
         }
@@ -24,9 +32,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         guard let regionController = rootVC.splitViewItems[0].viewController as? RegionController else {
             return
         }
+
+        guard let countryController = rootVC.splitViewItems[1].viewController as? CountryController else {
+            return
+        }
         
-        regionController.apiClient = apiClient
+        regionController.pickerDelegate = countryController
+        countryController.apiClient = apiClient
         
+        setupFinished = true
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
