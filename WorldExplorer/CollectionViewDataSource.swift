@@ -41,12 +41,32 @@ public class CollectionViewDataSource<Model, Cell: ConfigurableCell where Cell: 
     
     public var state: DataSourceState<Model> = .Loading {
         didSet {
+            switch self.state {
+            case .Error(_):
+                //TODO: Show an error!
+                break
+            case .Values(_):
+                activityIndicator.hidden = true
+                activityIndicator.stopAnimation(nil)
+            case .Loading:
+                activityIndicator.hidden = false
+                activityIndicator.startAnimation(nil)
+            }
+
             self.collectionView?.reloadData()
         }
     }
+    
     public weak var collectionView: NSCollectionView?
     public let collectionViewFlowLayout: NSCollectionViewFlowLayout
     public let mapper: ModelMapper
+    var activityIndicator: NSProgressIndicator = {
+        let indicator = NSProgressIndicator()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.style = .SpinningStyle
+        indicator.hidden = true
+        return indicator
+    }()
     
     public init(collectionView: NSCollectionView,
         mapper: ModelMapper,
@@ -55,6 +75,12 @@ public class CollectionViewDataSource<Model, Cell: ConfigurableCell where Cell: 
             self.collectionView = collectionView
             self.collectionViewFlowLayout = collectionViewFlowLayout
             
+            collectionView.addSubview(activityIndicator)
+            let xCenterConstraint = NSLayoutConstraint(item: activityIndicator, attribute: .CenterX, relatedBy: .Equal, toItem: collectionView, attribute: .CenterX, multiplier: 1, constant: 0)
+            collectionView.addConstraint(xCenterConstraint)
+            let yCenterConstraint = NSLayoutConstraint(item: activityIndicator, attribute: .CenterY, relatedBy: .Equal, toItem: collectionView, attribute: .CenterY, multiplier: 1, constant: 0)
+            collectionView.addConstraint(yCenterConstraint)
+
             collectionView.registerNib(Cell.nib, forItemWithIdentifier: Cell.reuseIdentifier)
             collectionView.collectionViewLayout = WrappedLayout()
             collectionView.dataSource = bridgedDataSource
@@ -131,6 +157,10 @@ Keep responsibilies focused.
     
     @objc func collectionView(collectionView: NSCollectionView, itemForRepresentedObjectAtIndexPath indexPath: NSIndexPath) -> NSCollectionViewItem {
         return itemForRowAtIndexPath(collectionView, indexPath)
+    }
+    
+    @objc func collectionView(collectionView: NSCollectionView, didSelectItemsAtIndexPaths indexPaths: Set<NSIndexPath>) {
+    
     }
 }
 

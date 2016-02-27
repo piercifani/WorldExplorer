@@ -10,13 +10,25 @@ class CountryController: NSViewController, RegionPickerObserver {
     
     var apiClient: APIClient!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+    @IBOutlet weak var filterHandlerView: FilterHandlerView!
+    @IBOutlet weak var countryListView: CountryListView!
+    @IBOutlet weak var countryDetailView: CountryDetailView!
+
     //MARK: - RegionPickerObserver
     func onRegionPicked(region: Region) {
-    
+        
+        //TODO: Maybe throttle how often the user can change the region?
+        
+        countryListView.dataSource.state = .Loading
+        apiClient.fetchCountriesForRegion(region).uponMainQueue { [weak self] result in
+            guard let strongSelf = self else { return }
+            switch result {
+            case .Failure(let error):
+                strongSelf.countryListView.dataSource.state = .Error(error)
+            case .Success(let value):
+                strongSelf.countryListView.dataSource.state = .Values(value)
+            }
+        }
     }
 }
 

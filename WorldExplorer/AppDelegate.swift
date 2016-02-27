@@ -37,8 +37,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
         
-        regionController.pickerDelegate = countryController
         countryController.apiClient = apiClient
+        regionController.pickerDelegate = countryController
         
         setupFinished = true
     }

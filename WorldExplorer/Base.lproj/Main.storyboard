@@ -411,6 +411,11 @@
                             <constraint firstItem="kbn-a8-ikn" firstAttribute="top" secondItem="1xl-uT-QLi" secondAttribute="top" id="qdS-IP-3AZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="countryDetailView" destination="Yvn-CS-fXm" id="rg9-yf-XEc"/>
+                        <outlet property="countryListView" destination="Xix-Bj-ySG" id="Hnm-Hq-ntX"/>
+                        <outlet property="filterHandlerView" destination="QBq-Eg-v3f" id="yBk-Xm-Iru"/>
+                    </connections>
                 </viewController>
                 <customObject id="2qH-mj-xif" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
