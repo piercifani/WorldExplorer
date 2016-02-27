@@ -90,8 +90,8 @@ public class CollectionViewDataSource<Model, Cell: ConfigurableCell where Cell: 
             guard let viewModel = optionalViewModel else { return NSCollectionViewItem() }
            
             let reuseIdentifier = Cell.reuseIdentifier
-            let collectionItem = collectionView.makeItemWithIdentifier(reuseIdentifier, forIndexPath: indexPath)
-            collectionItem.representedObject = Box(viewModel)
+            let collectionItem = collectionView.makeItemWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! Cell
+            collectionItem.configureFor(viewModel: viewModel)
             return collectionItem
         },
         itemTappedAtIndexPath: { (indexPath) -> Void in
