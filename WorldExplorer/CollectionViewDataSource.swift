@@ -38,6 +38,7 @@ public class CollectionViewDataSource<Model, Cell: ConfigurableCell where Cell: 
     /// and making the generics type of both ConfigurableCell and Model
     /// match impossible as of Swift 2.1
     public typealias ModelMapper = (Model) -> Cell.T
+    public typealias TapHandler = (Model) -> Void
     
     public var state: DataSourceState<Model> = .Loading {
         didSet {
@@ -60,6 +61,7 @@ public class CollectionViewDataSource<Model, Cell: ConfigurableCell where Cell: 
     public weak var collectionView: NSCollectionView?
     public let collectionViewFlowLayout: NSCollectionViewFlowLayout
     public let mapper: ModelMapper
+    public var tapHandler: TapHandler?
     var activityIndicator: NSProgressIndicator = {
         let indicator = NSProgressIndicator()
         indicator.translatesAutoresizingMaskIntoConstraints = false
@@ -101,6 +103,7 @@ public class CollectionViewDataSource<Model, Cell: ConfigurableCell where Cell: 
                 return values.count
             }
         },
+        
         itemForRowAtIndexPath: { [weak self] (collectionView, indexPath) -> NSCollectionViewItem in
             guard let strongSelf = self else { return NSCollectionViewItem() }
             
@@ -122,8 +125,24 @@ public class CollectionViewDataSource<Model, Cell: ConfigurableCell where Cell: 
             collectionItem.configureFor(viewModel: viewModel)
             return collectionItem
         },
-        itemTappedAtIndexPath: { (indexPath) -> Void in
         
+        itemTappedAtIndexPath: { [weak self] (indexPath) -> Void in
+            guard let strongSelf = self else { return }
+            
+            let optionalModel: Model? = {
+                switch strongSelf.state {
+                case .Loading:
+                    return nil
+                case .Error(_):
+                    return nil
+                case .Values(let values):
+                    return values[indexPath.item]
+                }
+            }()
+
+            guard let model = optionalModel else { return }
+
+            strongSelf.tapHandler?(model)
         }
     )
 }
@@ -134,7 +153,7 @@ Keep classes pure Swift.
 Keep responsibilies focused.
 */
 
-@objc private final class BridgedCollectionViewDataSource: NSObject, NSCollectionViewDataSource, NSCollectionViewDelegate {
+@objc final class BridgedCollectionViewDataSource: NSObject, NSCollectionViewDataSource, NSCollectionViewDelegate {
     
     typealias NumberOfItemsInSectionHandler = (Int) -> Int
     typealias ItemForRowAtIndexPathHandler = (NSCollectionView, NSIndexPath) -> NSCollectionViewItem
@@ -161,8 +180,20 @@ Keep responsibilies focused.
         return itemForRowAtIndexPath(collectionView, indexPath)
     }
     
-    @objc func collectionView(collectionView: NSCollectionView, didSelectItemsAtIndexPaths indexPaths: Set<NSIndexPath>) {
-    
+    //MARK:- Handle Selection
+    @objc func collectionView(collectionView: NSCollectionView, handleItemSelection item: NSCollectionViewItem) {
+        
+        collectionView.selectionIndexPaths.forEach { indexPath in
+            if let item = collectionView.itemAtIndexPath(indexPath) {
+                item.highlightState = .None
+            }
+        }
+        
+        item.highlightState = .ForSelection
+
+        guard let indexPath = collectionView.indexPathForItem(item) else {return}
+        collectionView.selectionIndexPaths = Set(arrayLiteral: indexPath)
+        itemTappedAtIndexPath(indexPath)
     }
 }
 

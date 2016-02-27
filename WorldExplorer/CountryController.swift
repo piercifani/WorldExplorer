@@ -13,12 +13,17 @@ class CountryController: NSViewController, RegionPickerObserver {
     @IBOutlet weak var filterHandlerView: FilterHandlerView!
     @IBOutlet weak var countryListView: CountryListView!
     @IBOutlet weak var countryDetailView: CountryDetailView!
+    
+    func onCountrySelection(country: Country) {
+        countryDetailView.presentDetailsForCountry(country)
+    }
 
     //MARK: - RegionPickerObserver
     func onRegionPicked(region: Region) {
         
         //TODO: Maybe throttle how often the user can change the region?
         
+        countryListView.countrySelectHandler = onCountrySelection
         countryListView.dataSource.state = .Loading
         apiClient.fetchCountriesForRegion(region).uponMainQueue { [weak self] result in
             guard let strongSelf = self else { return }
@@ -54,6 +59,11 @@ class FilterHandlerView: NSView, NSTextFieldDelegate {
 class CountryListView: NSView {
     @IBOutlet weak var collectionView: NSCollectionView!
     var dataSource: CollectionViewDataSource<Country, CountryItem>!
+    var countrySelectHandler: (Country -> Void)? {
+        didSet{
+            dataSource.tapHandler = countrySelectHandler
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -66,9 +76,18 @@ class CountryListView: NSView {
 }
 
 class CountryDetailView: NSView {
-    @IBOutlet weak var mapView: MKMapView!
-
+    @IBOutlet weak var countryNameLabel: NSTextField!
+    @IBOutlet weak var populationLabel: NSTextField!
+    @IBOutlet weak var currencyLabel: NSTextField!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    func presentDetailsForCountry(country: Country) {
+        countryNameLabel.stringValue = country.name
+        populationLabel.stringValue = "\(country.population)"
+        currencyLabel.stringValue = country.currencies.joinWithSeparator(", ")
     }
 }
