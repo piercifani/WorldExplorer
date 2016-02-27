@@ -4,7 +4,21 @@
 //
 
 import Foundation
+import Decodable
 
-struct Country {
+public struct Country {
     let name: String
+    let population: Double
+    let currencies: [String]
+}
+
+extension Country: Decodable {
+
+    public static func decode(j: AnyObject) throws -> Country {
+        return try Country(
+            name : j => "name",
+            population: j => "population",
+            currencies: j => "currencies"
+        )
+    }
 }

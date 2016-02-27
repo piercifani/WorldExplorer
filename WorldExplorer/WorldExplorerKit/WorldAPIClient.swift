@@ -11,8 +11,8 @@ import Foundation
 public class APIClient {
     public let drosky = Drosky()
 
-    func fetchCountriesForRegion(region: Region) -> Deferred<Result<Void>>{
+    func fetchCountriesForRegion(region: Region) -> Deferred<Result<[Country]>>{
         return drosky.performRequest(forEndpoint: region)
-                ≈> parseEmptyResponse
+                ≈> parseAsyncResponse
     }
 }
