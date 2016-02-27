@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="9532"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
@@ -243,18 +245,169 @@
             </objects>
             <point key="canvasLocation" x="835" y="499"/>
         </scene>
-        <!--View Controller-->
+        <!--Results View Controller-->
         <scene sceneID="PnT-JI-mBS">
             <objects>
-                <viewController id="q8d-Fo-5eV" sceneMemberID="viewController">
+                <viewController id="q8d-Fo-5eV" customClass="ResultsViewController" customModule="WorldExplorer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="1xl-uT-QLi">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="516" height="346"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <splitView arrangesAllSubviews="NO" dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kbn-a8-ikn">
+                                <rect key="frame" x="0.0" y="0.0" width="516" height="346"/>
+                                <subviews>
+                                    <customView id="QBq-Eg-v3f" customClass="FilterHandlerView" customModule="WorldExplorer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="144" height="346"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="se4-DV-yth">
+                                                <rect key="frame" x="25" y="309" width="94" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Population Min" id="YyH-pk-eIW">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="js8-MA-Y8k">
+                                                <rect key="frame" x="27" y="279" width="90" height="22"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Rqk-sZ-UUT">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ce5-8G-Vpw">
+                                                <rect key="frame" x="24" y="249" width="97" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Population Max" id="SHn-EI-BAd">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W8w-dB-5eQ">
+                                                <rect key="frame" x="26" y="219" width="93" height="22"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="deI-tB-sM1">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PEB-hd-Ukg">
+                                                <rect key="frame" x="42" y="189" width="60" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Currency" id="nDk-gU-aNK">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BIZ-EG-dre">
+                                                <rect key="frame" x="44" y="159" width="56" height="22"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="gEp-y9-yHq">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="PEB-hd-Ukg" firstAttribute="top" secondItem="W8w-dB-5eQ" secondAttribute="bottom" constant="13" id="2rK-5E-gJu"/>
+                                            <constraint firstItem="BIZ-EG-dre" firstAttribute="top" secondItem="PEB-hd-Ukg" secondAttribute="bottom" constant="8" id="30U-Ma-5ka"/>
+                                            <constraint firstItem="W8w-dB-5eQ" firstAttribute="centerX" secondItem="QBq-Eg-v3f" secondAttribute="centerX" id="499-un-H1m"/>
+                                            <constraint firstItem="W8w-dB-5eQ" firstAttribute="width" secondItem="Ce5-8G-Vpw" secondAttribute="width" id="BO7-hh-9R5"/>
+                                            <constraint firstItem="BIZ-EG-dre" firstAttribute="width" secondItem="PEB-hd-Ukg" secondAttribute="width" id="EpG-Kd-9bG"/>
+                                            <constraint firstItem="BIZ-EG-dre" firstAttribute="centerX" secondItem="QBq-Eg-v3f" secondAttribute="centerX" id="FUR-hs-eIg"/>
+                                            <constraint firstItem="js8-MA-Y8k" firstAttribute="centerX" secondItem="QBq-Eg-v3f" secondAttribute="centerX" id="Fr8-MY-Yx1"/>
+                                            <constraint firstItem="Ce5-8G-Vpw" firstAttribute="top" secondItem="js8-MA-Y8k" secondAttribute="bottom" constant="13" id="Kev-TK-9n5"/>
+                                            <constraint firstItem="PEB-hd-Ukg" firstAttribute="centerX" secondItem="QBq-Eg-v3f" secondAttribute="centerX" id="Tax-rV-tAt"/>
+                                            <constraint firstItem="js8-MA-Y8k" firstAttribute="width" secondItem="se4-DV-yth" secondAttribute="width" id="aFM-MD-DYO"/>
+                                            <constraint firstItem="js8-MA-Y8k" firstAttribute="top" secondItem="se4-DV-yth" secondAttribute="bottom" constant="8" id="dWB-nQ-oVA"/>
+                                            <constraint firstItem="Ce5-8G-Vpw" firstAttribute="centerX" secondItem="QBq-Eg-v3f" secondAttribute="centerX" id="f02-2v-j2M"/>
+                                            <constraint firstItem="W8w-dB-5eQ" firstAttribute="top" secondItem="Ce5-8G-Vpw" secondAttribute="bottom" constant="8" id="jjz-Zp-4eJ"/>
+                                            <constraint firstItem="se4-DV-yth" firstAttribute="centerX" secondItem="QBq-Eg-v3f" secondAttribute="centerX" id="uUk-m9-STa"/>
+                                            <constraint firstItem="se4-DV-yth" firstAttribute="top" secondItem="QBq-Eg-v3f" secondAttribute="top" constant="20" id="yMB-HS-csz"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="currencyTextField" destination="BIZ-EG-dre" id="R9J-RI-UJ8"/>
+                                            <outlet property="populationMaxTextField" destination="W8w-dB-5eQ" id="uBu-68-Fic"/>
+                                            <outlet property="populationMinTextField" destination="js8-MA-Y8k" id="O73-vW-9kt"/>
+                                        </connections>
+                                    </customView>
+                                    <customView id="Xix-Bj-ySG" customClass="CountryListView" customModule="WorldExplorer" customModuleProvider="target">
+                                        <rect key="frame" x="154" y="0.0" width="172" height="346"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <subviews>
+                                            <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylE-jf-Isr">
+                                                <rect key="frame" x="0.0" y="0.0" width="172" height="346"/>
+                                                <clipView key="contentView" id="UOm-Ns-gTQ">
+                                                    <rect key="frame" x="1" y="1" width="170" height="344"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <collectionView id="d3v-h7-72I">
+                                                            <rect key="frame" x="0.0" y="0.0" width="170" height="344"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </collectionView>
+                                                    </subviews>
+                                                </clipView>
+                                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Y7s-lO-zoU">
+                                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </scroller>
+                                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="cZg-FS-mWP">
+                                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </scroller>
+                                            </scrollView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ylE-jf-Isr" firstAttribute="top" secondItem="Xix-Bj-ySG" secondAttribute="top" id="1dz-hp-OCd"/>
+                                            <constraint firstAttribute="trailing" secondItem="ylE-jf-Isr" secondAttribute="trailing" id="ICv-A0-VQX"/>
+                                            <constraint firstItem="ylE-jf-Isr" firstAttribute="leading" secondItem="Xix-Bj-ySG" secondAttribute="leading" id="MB1-xb-amG"/>
+                                            <constraint firstAttribute="bottom" secondItem="ylE-jf-Isr" secondAttribute="bottom" id="gIH-PE-3JO"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="collectionView" destination="d3v-h7-72I" id="C0w-IJ-5oc"/>
+                                        </connections>
+                                    </customView>
+                                    <customView id="Yvn-CS-fXm" customClass="CountryDetailView" customModule="WorldExplorer" customModuleProvider="target">
+                                        <rect key="frame" x="336" y="0.0" width="180" height="346"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <subviews>
+                                            <mapView mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lzf-Rq-DFX">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="250"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="MiV-Ol-Q0I"/>
+                                                </constraints>
+                                            </mapView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="lzf-Rq-DFX" secondAttribute="trailing" id="A3y-Y3-MXo"/>
+                                            <constraint firstItem="lzf-Rq-DFX" firstAttribute="leading" secondItem="Yvn-CS-fXm" secondAttribute="leading" id="BBQ-gp-Ruj"/>
+                                            <constraint firstAttribute="bottom" secondItem="lzf-Rq-DFX" secondAttribute="bottom" id="SdN-eq-zqw"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="mapView" destination="lzf-Rq-DFX" id="tQV-Vf-GjH"/>
+                                        </connections>
+                                    </customView>
+                                </subviews>
+                                <holdingPriorities>
+                                    <real value="250"/>
+                                    <real value="250"/>
+                                    <real value="250"/>
+                                </holdingPriorities>
+                            </splitView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="kbn-a8-ikn" secondAttribute="bottom" id="19X-3Q-kcR"/>
+                            <constraint firstItem="kbn-a8-ikn" firstAttribute="leading" secondItem="1xl-uT-QLi" secondAttribute="leading" id="8Bb-Cw-TFS"/>
+                            <constraint firstAttribute="trailing" secondItem="kbn-a8-ikn" secondAttribute="trailing" id="Z5G-xe-W7j"/>
+                            <constraint firstItem="kbn-a8-ikn" firstAttribute="top" secondItem="1xl-uT-QLi" secondAttribute="top" id="qdS-IP-3AZ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="2qH-mj-xif" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="835" y="860"/>
+            <point key="canvasLocation" x="868" y="883"/>
         </scene>
     </scenes>
 </document>

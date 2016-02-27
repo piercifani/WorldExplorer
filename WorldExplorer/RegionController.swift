@@ -8,18 +8,8 @@ import Cocoa
 class RegionController: NSViewController {
 
     var apiClient: APIClient!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override var representedObject: AnyObject? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
+    //TODO: This should be handled with a CollectionView or TableView, so we don't have all these IBActions
 
     @IBAction func onSelectAfrica(sender: AnyObject) {
         apiClient.fetchCountriesForRegion(.Africa)
