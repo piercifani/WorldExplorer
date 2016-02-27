@@ -33,6 +33,6 @@ extension Region: Endpoint {
             value = "americas"
         }
         
-        return BaseURL + value
+        return BaseURL + "region/" + value
     }
 }

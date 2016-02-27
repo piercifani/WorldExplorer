@@ -23,7 +23,7 @@
 		EB3AD28A1C80D542007EEC3C /* Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3AD2891C80D542007EEC3C /* Parse.swift */; };
 		EB3AD28D1C80D88F007EEC3C /* WorldEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3AD28C1C80D88F007EEC3C /* WorldEndpoint.swift */; };
 		EB3AD28F1C80E056007EEC3C /* WorldAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3AD28E1C80E056007EEC3C /* WorldAPIClient.swift */; };
-		EB88B7461C81B5F300D2BF6D /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB88B7451C81B5F300D2BF6D /* ResultsViewController.swift */; };
+		EB88B7461C81B5F300D2BF6D /* CountryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB88B7451C81B5F300D2BF6D /* CountryController.swift */; };
 		EB88B7481C81BC1800D2BF6D /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB88B7471C81BC1800D2BF6D /* CollectionViewDataSource.swift */; };
 		EB88B74A1C81EF8E00D2BF6D /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB88B7491C81EF8E00D2BF6D /* Country.swift */; };
 		EB88B74D1C81F0E400D2BF6D /* CountryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB88B74B1C81F0E400D2BF6D /* CountryItem.swift */; };
@@ -51,7 +51,7 @@
 		EB3AD2891C80D542007EEC3C /* Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parse.swift; sourceTree = "<group>"; };
 		EB3AD28C1C80D88F007EEC3C /* WorldEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldEndpoint.swift; sourceTree = "<group>"; };
 		EB3AD28E1C80E056007EEC3C /* WorldAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldAPIClient.swift; sourceTree = "<group>"; };
-		EB88B7451C81B5F300D2BF6D /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		EB88B7451C81B5F300D2BF6D /* CountryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryController.swift; sourceTree = "<group>"; };
 		EB88B7471C81BC1800D2BF6D /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewDataSource.swift; path = ../CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		EB88B7491C81EF8E00D2BF6D /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		EB88B74B1C81F0E400D2BF6D /* CountryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryItem.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				EB3AD2601C80CD12007EEC3C /* RegionController.swift */,
-				EB88B7451C81B5F300D2BF6D /* ResultsViewController.swift */,
+				EB88B7451C81B5F300D2BF6D /* CountryController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -306,7 +306,7 @@
 				EB3AD2781C80CFA1007EEC3C /* Result+Deferred.swift in Sources */,
 				EB3AD2881C80D34B007EEC3C /* ModuleConstants.swift in Sources */,
 				EB3AD2861C80D272007EEC3C /* Endpoint.swift in Sources */,
-				EB88B7461C81B5F300D2BF6D /* ResultsViewController.swift in Sources */,
+				EB88B7461C81B5F300D2BF6D /* CountryController.swift in Sources */,
 				EB3AD28F1C80E056007EEC3C /* WorldAPIClient.swift in Sources */,
 				EB3AD2611C80CD12007EEC3C /* RegionController.swift in Sources */,
 				EB3AD2821C80D233007EEC3C /* ReadWriteLock.swift in Sources */,
