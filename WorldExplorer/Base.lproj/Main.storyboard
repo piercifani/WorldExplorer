@@ -245,10 +245,10 @@
             </objects>
             <point key="canvasLocation" x="835" y="499"/>
         </scene>
-        <!--Results View Controller-->
+        <!--Country Controller-->
         <scene sceneID="PnT-JI-mBS">
             <objects>
-                <viewController id="q8d-Fo-5eV" customClass="ResultsViewController" customModule="WorldExplorer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="q8d-Fo-5eV" customClass="CountryController" customModule="WorldExplorer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="1xl-uT-QLi">
                         <rect key="frame" x="0.0" y="0.0" width="516" height="346"/>
                         <autoresizingMask key="autoresizingMask"/>

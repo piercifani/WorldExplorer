@@ -6,8 +6,8 @@
 import Cocoa
 import MapKit
 
-class ResultsViewController: NSViewController {
-
+class CountryController: NSViewController {
+    
 }
 
 class FilterHandlerView: NSView, NSTextFieldDelegate {
