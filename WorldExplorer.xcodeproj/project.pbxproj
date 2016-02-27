@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D0D4015F859657A703FD88B9 /* Pods_WorldExplorer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB38578421F240183E245F4 /* Pods_WorldExplorer.framework */; };
 		EB3AD25F1C80CD12007EEC3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3AD25E1C80CD12007EEC3C /* AppDelegate.swift */; };
-		EB3AD2611C80CD12007EEC3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3AD2601C80CD12007EEC3C /* ViewController.swift */; };
+		EB3AD2611C80CD12007EEC3C /* RegionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3AD2601C80CD12007EEC3C /* RegionController.swift */; };
 		EB3AD2631C80CD12007EEC3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3AD2621C80CD12007EEC3C /* Assets.xcassets */; };
 		EB3AD2661C80CD12007EEC3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB3AD2641C80CD12007EEC3C /* Main.storyboard */; };
 		EB3AD2781C80CFA1007EEC3C /* Result+Deferred.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3AD2721C80CFA1007EEC3C /* Result+Deferred.swift */; };
@@ -21,6 +21,8 @@
 		EB3AD2861C80D272007EEC3C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3AD2851C80D272007EEC3C /* Endpoint.swift */; };
 		EB3AD2881C80D34B007EEC3C /* ModuleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3AD2871C80D34B007EEC3C /* ModuleConstants.swift */; };
 		EB3AD28A1C80D542007EEC3C /* Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3AD2891C80D542007EEC3C /* Parse.swift */; };
+		EB3AD28D1C80D88F007EEC3C /* WorldEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3AD28C1C80D88F007EEC3C /* WorldEndpoint.swift */; };
+		EB3AD28F1C80E056007EEC3C /* WorldAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3AD28E1C80E056007EEC3C /* WorldAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +31,7 @@
 		CEB38578421F240183E245F4 /* Pods_WorldExplorer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorldExplorer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB3AD25B1C80CD12007EEC3C /* WorldExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB3AD25E1C80CD12007EEC3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EB3AD2601C80CD12007EEC3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EB3AD2601C80CD12007EEC3C /* RegionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionController.swift; sourceTree = "<group>"; };
 		EB3AD2621C80CD12007EEC3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB3AD2651C80CD12007EEC3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB3AD2671C80CD12007EEC3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,6 +44,8 @@
 		EB3AD2851C80D272007EEC3C /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		EB3AD2871C80D34B007EEC3C /* ModuleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleConstants.swift; sourceTree = "<group>"; };
 		EB3AD2891C80D542007EEC3C /* Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parse.swift; sourceTree = "<group>"; };
+		EB3AD28C1C80D88F007EEC3C /* WorldEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldEndpoint.swift; sourceTree = "<group>"; };
+		EB3AD28E1C80E056007EEC3C /* WorldAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				EB3AD25E1C80CD12007EEC3C /* AppDelegate.swift */,
-				EB3AD2601C80CD12007EEC3C /* ViewController.swift */,
+				EB3AD2601C80CD12007EEC3C /* RegionController.swift */,
+				EB3AD28B1C80D877007EEC3C /* WorldExplorerKit */,
 				EB3AD26D1C80CFA1007EEC3C /* BlurFoundation */,
 				EB3AD2621C80CD12007EEC3C /* Assets.xcassets */,
 				EB3AD2641C80CD12007EEC3C /* Main.storyboard */,
@@ -134,6 +139,15 @@
 				EB3AD2741C80CFA1007EEC3C /* Result.swift */,
 			);
 			name = Result;
+			sourceTree = "<group>";
+		};
+		EB3AD28B1C80D877007EEC3C /* WorldExplorerKit */ = {
+			isa = PBXGroup;
+			children = (
+				EB3AD28C1C80D88F007EEC3C /* WorldEndpoint.swift */,
+				EB3AD28E1C80E056007EEC3C /* WorldAPIClient.swift */,
+			);
+			path = WorldExplorerKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,10 +274,12 @@
 				EB3AD2781C80CFA1007EEC3C /* Result+Deferred.swift in Sources */,
 				EB3AD2881C80D34B007EEC3C /* ModuleConstants.swift in Sources */,
 				EB3AD2861C80D272007EEC3C /* Endpoint.swift in Sources */,
-				EB3AD2611C80CD12007EEC3C /* ViewController.swift in Sources */,
+				EB3AD28F1C80E056007EEC3C /* WorldAPIClient.swift in Sources */,
+				EB3AD2611C80CD12007EEC3C /* RegionController.swift in Sources */,
 				EB3AD2821C80D233007EEC3C /* ReadWriteLock.swift in Sources */,
 				EB3AD2841C80D24D007EEC3C /* Drosky.swift in Sources */,
 				EB3AD25F1C80CD12007EEC3C /* AppDelegate.swift in Sources */,
+				EB3AD28D1C80D88F007EEC3C /* WorldEndpoint.swift in Sources */,
 				EB3AD2811C80D233007EEC3C /* LockProtected.swift in Sources */,
 				EB3AD2801C80D233007EEC3C /* Deferred.swift in Sources */,
 				EB3AD28A1C80D542007EEC3C /* Parse.swift in Sources */,
@@ -373,7 +389,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = WorldExplorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blursoftware.WorldExplorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -387,7 +403,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = WorldExplorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.blursoftware.WorldExplorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
