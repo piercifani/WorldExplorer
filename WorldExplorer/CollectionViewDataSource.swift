@@ -75,12 +75,14 @@ public class CollectionViewDataSource<Model, Cell: ConfigurableCell where Cell: 
             self.collectionView = collectionView
             self.collectionViewFlowLayout = collectionViewFlowLayout
             
+            //Configure Activity Indicator
             collectionView.addSubview(activityIndicator)
             let xCenterConstraint = NSLayoutConstraint(item: activityIndicator, attribute: .CenterX, relatedBy: .Equal, toItem: collectionView, attribute: .CenterX, multiplier: 1, constant: 0)
             collectionView.addConstraint(xCenterConstraint)
             let yCenterConstraint = NSLayoutConstraint(item: activityIndicator, attribute: .CenterY, relatedBy: .Equal, toItem: collectionView, attribute: .CenterY, multiplier: 1, constant: 0)
             collectionView.addConstraint(yCenterConstraint)
 
+            //Configure ColelctionView
             collectionView.registerNib(Cell.nib, forItemWithIdentifier: Cell.reuseIdentifier)
             collectionView.collectionViewLayout = WrappedLayout()
             collectionView.dataSource = bridgedDataSource
