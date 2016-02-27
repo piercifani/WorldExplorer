@@ -17,6 +17,22 @@ class CountryItem: NSCollectionViewItem, ConfigurableCell {
         let itemView = self.view as! CountryItemView
         itemView.countryNameLabel.stringValue = viewModel.countryName
     }
+    
+    override var highlightState: NSCollectionViewItemHighlightState {
+        didSet {
+            let itemView = self.view as! CountryItemView
+            itemView.countryNameLabel.textColor = (highlightState == NSCollectionViewItemHighlightState.ForSelection ? NSColor.blueColor() : NSColor.blackColor())
+        }
+    }
+    
+    override func mouseDown(theEvent: NSEvent) {
+        super.mouseDown(theEvent)
+        
+        //This can't be the canonical way of handling selection. Please review later
+        guard let delegate = collectionView.delegate as? BridgedCollectionViewDataSource else {return}
+        
+        delegate.collectionView(collectionView, handleItemSelection: self)
+    }
 }
 
 class CountryItemView: NSView {
