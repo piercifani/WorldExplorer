@@ -13,9 +13,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let apiClient = APIClient()
     
-    // I Hate this bool, it adds state and it's sloppy, but
-    // I have no idea why appDidFinishLaunching and appDidBecomeActive
-    // are being called either a lot, or before the views are set up
+    // I Hate this Bool, it adds state to this class and it's sloppy,
+    // but I have no idea why appDidFinishLaunching and appDidBecomeActive
+    // are being called either a lot, or before the view hierarchy is set up
+    
     var setupFinished: Bool = false
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -30,10 +31,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         guard let regionController = rootVC.splitViewItems[0].viewController as? RegionController else {
+            //Should this be a fatalError?
             return
         }
 
         guard let countryController = rootVC.splitViewItems[1].viewController as? CountryController else {
+            //Should this be a fatalError?
             return
         }
         

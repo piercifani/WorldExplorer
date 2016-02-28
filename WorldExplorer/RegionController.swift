@@ -5,14 +5,11 @@
 
 import Cocoa
 
-protocol RegionPickerObserver: class {
-    func onRegionPicked(region: Region)
-}
-
 class RegionController: NSViewController {
 
     weak var pickerDelegate: RegionPickerObserver? {
         didSet {
+            //Europe is the default region
             self.setSelectedRegion(.Europe)
         }
     }

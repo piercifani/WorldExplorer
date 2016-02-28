@@ -14,7 +14,7 @@ class CountryController: NSViewController, RegionPickerObserver, FilterHandlerPr
     @IBOutlet weak var countryListView: CountryListView!
     @IBOutlet weak var countryDetailView: CountryDetailView!
     
-    var filterApplier = FilterApplier()
+    let filterApplier = FilterApplier()
     var currentRegionCountries: [Country]?
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class CountryController: NSViewController, RegionPickerObserver, FilterHandlerPr
         
         //TODO: Maybe throttle how often the user can change the region?
         
-        //This should be on viewDidLoad, but don't know how to do that yet
+        //This should be on viewDidLoad, but don't know why countryListView is nil there
         countryListView.countrySelectHandler = onCountrySelection
         
         countryListView.dataSource.state = .Loading
@@ -50,7 +50,7 @@ class CountryController: NSViewController, RegionPickerObserver, FilterHandlerPr
         }
     }
     
-    //MARK: - FilterHandlerProtocol
+    //MARK: FilterHandlerProtocol
     func didUpdateMinPopulation(minPopulation: String) {
         let currentFilter = filterApplier.currentFilter
         let newMinPopulation: Double? = minPopulation.characters.count == 0 ? nil : Double(minPopulation)
@@ -91,11 +91,7 @@ class CountryController: NSViewController, RegionPickerObserver, FilterHandlerPr
     }
 }
 
-protocol FilterHandlerProtocol: class {
-    func didUpdateMinPopulation(maxPopulation: String)
-    func didUpdateMaxPopulation(maxPopulation: String)
-    func didUpdateCurrency(currency: String)
-}
+//MARK: - FilterHandlerView
 
 class FilterHandlerView: NSView, NSTextFieldDelegate {
     
@@ -125,6 +121,8 @@ class FilterHandlerView: NSView, NSTextFieldDelegate {
     }
 }
 
+//MARK: - CountryListView
+
 class CountryListView: NSView {
     @IBOutlet weak var collectionView: NSCollectionView!
     var dataSource: CollectionViewDataSource<Country, CountryItem>!
@@ -144,15 +142,12 @@ class CountryListView: NSView {
     }
 }
 
+//MARK: - CountryDetailView
+
 class CountryDetailView: NSView {
     @IBOutlet weak var countryNameLabel: NSTextField!
     @IBOutlet weak var populationLabel: NSTextField!
     @IBOutlet weak var currencyLabel: NSTextField!
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
     
     func presentDetailsForCountry(country: Country) {
         countryNameLabel.stringValue = country.name

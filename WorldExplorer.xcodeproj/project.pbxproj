@@ -30,6 +30,7 @@
 		EB88B74A1C81EF8E00D2BF6D /* Model+Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB88B7491C81EF8E00D2BF6D /* Model+Parse.swift */; };
 		EB88B74D1C81F0E400D2BF6D /* CountryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB88B74B1C81F0E400D2BF6D /* CountryItem.swift */; };
 		EB88B74E1C81F0E400D2BF6D /* CountryItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB88B74C1C81F0E400D2BF6D /* CountryItem.xib */; };
+		EBAF339B1C8310B1001C18ED /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF339A1C8310B1001C18ED /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		EB88B7491C81EF8E00D2BF6D /* Model+Parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Model+Parse.swift"; sourceTree = "<group>"; };
 		EB88B74B1C81F0E400D2BF6D /* CountryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryItem.swift; sourceTree = "<group>"; };
 		EB88B74C1C81F0E400D2BF6D /* CountryItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountryItem.xib; sourceTree = "<group>"; };
+		EBAF339A1C8310B1001C18ED /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 			children = (
 				EB3AD2601C80CD12007EEC3C /* RegionController.swift */,
 				EB88B7451C81B5F300D2BF6D /* CountryController.swift */,
+				EBAF339A1C8310B1001C18ED /* Protocols.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				EB3AD28D1C80D88F007EEC3C /* WorldEndpoint.swift in Sources */,
 				EB88B7481C81BC1800D2BF6D /* CollectionViewDataSource.swift in Sources */,
 				EB3AD2811C80D233007EEC3C /* LockProtected.swift in Sources */,
+				EBAF339B1C8310B1001C18ED /* Protocols.swift in Sources */,
 				EB88B74A1C81EF8E00D2BF6D /* Model+Parse.swift in Sources */,
 				EB3AD2801C80D233007EEC3C /* Deferred.swift in Sources */,
 				EB3AD28A1C80D542007EEC3C /* Parse.swift in Sources */,
